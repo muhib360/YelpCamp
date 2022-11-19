@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path')
+const engine = require('ejs-mate')
 const mongoose = require('mongoose');
 const Campground = require('./models/campgrounds')
 const methodOverride = require('method-override');
@@ -11,6 +12,8 @@ const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'Something went Wrong :('))
 db.once('connected', () => console.log('Successfuly Connected'))
+
+app.engine('ejs', engine);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'))
