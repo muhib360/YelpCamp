@@ -19,6 +19,7 @@ const seedDB = async () => {
         const random1000Cities = Math.floor(Math.random() * cities.length);
         const price = Math.floor(Math.random() * 20) + 10;
         const city = new Campground({ title: `${ranTitle(descriptors)} ${ranTitle(places)}`, location: `${cities[random1000Cities].city}, ${cities[random1000Cities].state}`, description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem assumenda quaerat odit amet asperiores ratione tempora fuga enim, incidunt consequuntur, ipsum, accusamus facere sapiente quam dolorem voluptatibus esse saepe alias.', image: 'https://source.unsplash.com/collection/483251', price });
+        city.author = "639952f3f9ab1d01adc41315";
         await city.save();
     }
 }

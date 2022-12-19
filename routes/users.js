@@ -29,8 +29,17 @@ Router.get('/login', (req, res) => {
 })
 
 Router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login', keepSessionInfo: true }), (req, res) => {
-    console.log(req.session)
     req.flash('success', 'Welcome back');
+    let str = req.session.returnTo;
+    if (str !== undefined) {
+        const haveReview = str.includes('/reviews');
+        if (haveReview) {
+            const i = str.indexOf('/review');
+            str = str.slice(0, i);
+        }
+        req.session.returnTo = str;
+        console.log(req.session.returnTo);
+    }
     const redirectUrl = req.session.returnTo || '/campgrounds';
     delete req.session.returnTo;
     res.redirect(redirectUrl)
