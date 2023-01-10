@@ -26,6 +26,7 @@ module.exports.isAuthor = async (req, res, next) => {
 }
 
 module.exports.validateCampground = (req, res, next) => {
+    console.log(req.body)
     const { error } = campgroundSchema.validate(req.body);
     if (error) {
         const msg = error.details.map(el => el.message).join(',')
@@ -57,3 +58,15 @@ module.exports.validateReview = (req, res, next) => {
         next()
     }
 }
+
+// module.exports.areImagesValid = (req, res, next) => {
+//     const { id } = req.params
+//     const campground = new Campground(req.body.campground);
+//     const c = Campground.findById(campground._id)
+//     // campground.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
+//     // if ((campground.images.length > 5)) {
+//     req.flash('error', 'Cannot Upload more than 5 images');
+//     return res.redirect(`/campgrounds/new`);
+//     // }
+//     next();
+// }
