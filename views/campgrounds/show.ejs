@@ -3,11 +3,13 @@
     <div class="row">
         <div class="col-6">
             <%# starting here %>
+            <div class="card">
+
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <% campground.images.forEach((img, i)=> { %>
                         <div class="carousel-inner">
                             <div class="carousel-item <%= i == 0 ? 'active' : '' %>">
-                                <img src="<%= img.url %>" class="d-block w-100" alt="...">
+                                <img src="<%= img.url %>" class="d-block h-100" id="image" alt="...">
                             </div>
                         </div>
                         <% }) %>
@@ -22,9 +24,8 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                 </div>
-
                 <%# ending here %>
-                    <div class="card mb-3">
+                    <div class="card mb-3" style="border-radius: 0;">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <%= campground.title%>
@@ -54,10 +55,10 @@
                                     2 days ago
                                 </div>
                     </div>
-
+                    </div>
         </div>
         <div class="col-6">
-            <div id='map' style='width: 400px; height: 300px;'></div>
+            <div id='map'></div>
             <% if (currentUser) { %>
                 <h2>Leave a Review</h2>
                 <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form"
