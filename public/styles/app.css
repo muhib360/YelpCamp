@@ -9,5 +9,15 @@
 }
 
 #image {
-    max-height: 300px;
+    /* overflow: hidden; */
+}
+/* 
+.carousel {
+    max-height: 400px;
+    overflow: hidden;
+} */
+
+.carousel-inner { 
+    max-height: 400px;
+    overflow: hidden;
 }

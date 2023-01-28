@@ -6,7 +6,6 @@ editImg.addEventListener('change', validateImageEdit)
 editForm.addEventListener('submit', validateImageEdit)
 
 function validateImageEdit(e) {
-    console.log(editImg)
     e.preventDefault();
     if (editImg.dataset.total > 5) {
         feedback.innerHTML = "Cannot upload more than 5 images"

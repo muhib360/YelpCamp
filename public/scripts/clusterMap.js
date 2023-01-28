@@ -2,7 +2,7 @@ mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
 container: 'cluster-map',
 // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-style: 'mapbox://styles/mapbox/dark-v11',
+style: 'mapbox://styles/mapbox/light-v11',
 center: [-103.5917, 40.6699],
 zoom: 3
 });
@@ -104,7 +104,6 @@ zoom: zoom
 map.on('click', 'unclustered-point', (e) => {
 const coordinates = e.features[0].geometry.coordinates.slice();
 const {popUpMarkup} = e.features[0].properties;
-console.log(popUpMarkup)
 // Ensure that if the map is zoomed out such that
 // multiple copies of the feature are visible, the
 // popup appears over the copy being pointed to.

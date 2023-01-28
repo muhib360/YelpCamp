@@ -15,35 +15,35 @@ const ranTitle = array => array[Math.floor(Math.random() * array.length)]
 
 const seedDB = async () => {
     await Campground.deleteMany({});
-    for (let i = 0; i <= 300; i++) {
-        const random1000Cities = Math.floor(Math.random() * cities.length);
-        const price = Math.floor(Math.random() * 20) + 10;
-        const city = new Campground({
-            title: `${ranTitle(descriptors)} ${ranTitle(places)}`,
-            location: `${cities[random1000Cities].city}, ${cities[random1000Cities].state}`,
-            description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem assumenda quaerat odit amet asperiores ratione tempora fuga enim, incidunt consequuntur, ipsum, accusamus facere sapiente quam dolorem voluptatibus esse saepe alias.',
-            price,
-            geometry: {
-                type: "Point",
-                coordinates: [
-                    cities[random1000Cities].longitude,
-                    cities[random1000Cities].latitude,
-                ]
-            },
-            images: [
-                {
-                    url: 'https://res.cloudinary.com/dtxkgxoiw/image/upload/v1671609266/iowd5bf84zpfyfl2p8xd.jpg',
-                    filename: 'YelpCamp/l7ka7dsycp6mhlww4e70'
-                },
-                {
-                    url: 'https://res.cloudinary.com/dtxkgxoiw/image/upload/v1673355184/YelpCamp/xgcbkgm0zf0as6ozqgor.jpg',
-                    filename: 'YelpCamp/bqsohpzdrht3rxnisqmp'
-                }
-            ]
-        });
-        city.author = "63995206f9ab1d01adc41308";
-        await city.save();
-    }
+    // for (let i = 0; i <= 300; i++) {
+    //     const random1000Cities = Math.floor(Math.random() * cities.length);
+    //     const price = Math.floor(Math.random() * 20) + 10;
+    //     const city = new Campground({
+    //         title: `${ranTitle(descriptors)} ${ranTitle(places)}`,
+    //         location: `${cities[random1000Cities].city}, ${cities[random1000Cities].state}`,
+    //         description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem assumenda quaerat odit amet asperiores ratione tempora fuga enim, incidunt consequuntur, ipsum, accusamus facere sapiente quam dolorem voluptatibus esse saepe alias.',
+    //         price,
+    //         geometry: {
+    //             type: "Point",
+    //             coordinates: [
+    //                 cities[random1000Cities].longitude,
+    //                 cities[random1000Cities].latitude,
+    //             ]
+    //         },
+    //         images: [
+    //             {
+    //                 url: 'https://source.unsplash.com/collection/483251/544x500',
+    //                 filename: 'YelpCamp/l7ka7dsycp6mhlww4e70'
+    //             },
+    //             {
+    //                 url: 'https://source.unsplash.com/collection/483251/544x500',
+    //                 filename: 'YelpCamp/bqsohpzdrht3rxnisqmp'
+    //             }
+    //         ]
+    //     });
+    //     city.author = "63995206f9ab1d01adc41308";
+    //     await city.save();
+    // }
 }
 
 seedDB();
